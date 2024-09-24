@@ -1,5 +1,10 @@
 package bsp3;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class NumberTester {
     String fileName;
     NumberTest oddTester;
@@ -23,6 +28,21 @@ public class NumberTester {
     }
 
     public void testFile(){
-
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))){
+            String commandLine = br.readLine();
+            while (commandLine != null){
+                commandLine = br.readLine();
+                String[] parts = commandLine.split(" ");
+                if (parts[0].equals("1")){
+                    oddTester.testNumber(Integer.parseInt(parts[1]));
+                }else if (parts[0].equals("2")){
+                    primeTester.testNumber(Integer.parseInt(parts[1]));
+                }else if (parts[0].equals("3")){
+                    palindromTester.testNumber(Integer.parseInt(parts[1]));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("File not found");
+        }
     }
 }
