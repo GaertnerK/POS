@@ -38,7 +38,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         int counter = 0;
         System.out.println("Primes:");
         for (int i = 2; i < numbers.length; i++){
-            if (numbers[i-2] == true){
+            if (numbers[i - 2]){
                 System.out.print(i + " ");
                 counter++;
 

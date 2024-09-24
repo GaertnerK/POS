@@ -7,7 +7,7 @@ public class Main {
         System.out.println("Please enter the number: ");
         int n = in.nextInt();
         boolean isPrime = eratosthenesPrimeSieve.isPrime(n);
-        if (isPrime == true){
+        if (isPrime){
             System.out.println("Prime" + "\n");
         }else{
             System.out.println("Not Prime" + "\n");
