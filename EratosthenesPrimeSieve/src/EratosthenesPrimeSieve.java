@@ -27,7 +27,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         }
         for (int i = 2; i < numbers.length; i++){
             if (i == p){
-                return true;
+                return numbers[i];
             }
         }
         return false;
