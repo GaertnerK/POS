@@ -33,12 +33,28 @@ public class NumberTester {
             for (int i = 0; i < linesCount; i++) {
                 commandLine = br.readLine();
                 String[] parts = commandLine.split(" ");
-                if (parts[0].equals("1")){
-                    oddTester.testNumber(Integer.parseInt(parts[1]));
-                }else if (parts[0].equals("2")){
-                    primeTester.testNumber(Integer.parseInt(parts[1]));
-                }else if (parts[0].equals("3")){
-                    palindromTester.testNumber(Integer.parseInt(parts[1]));
+                switch (parts[0]) {
+                    case "1": {
+                        if (oddTester.testNumber(Integer.parseInt(parts[1]))) {
+                            System.out.println("EVEN");
+                        }else {
+                            System.out.println("ODD");
+                        }
+                        break;
+                    }
+                    case "2":
+                        if(primeTester.testNumber(Integer.parseInt(parts[1]))){
+                            System.out.println("PRIME");
+                        }else {
+                            System.out.println("NO PRIME");
+                        }
+                        break;
+                    case "3":
+                        if(palindromTester.testNumber(Integer.parseInt(parts[1]))){
+                            System.out.println("PALINDROM");
+                        }else {
+                            System.out.println("NO PALINDROM");
+                        }
                 }
             }
         } catch (IOException e) {
