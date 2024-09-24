@@ -1,7 +1,6 @@
 package bsp3;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -30,7 +29,8 @@ public class NumberTester {
     public void testFile(){
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))){
             String commandLine = br.readLine();
-            while (commandLine != null){
+            int linesCount = Integer.parseInt(commandLine);
+            for (int i = 0; i < linesCount; i++) {
                 commandLine = br.readLine();
                 String[] parts = commandLine.split(" ");
                 if (parts[0].equals("1")){
