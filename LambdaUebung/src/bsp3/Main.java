@@ -9,12 +9,12 @@ public class Main {
             if (s.length % 2 != 0) {
                 return false;
             }
+            int counter = s.length-1;
             for (int i = 0; i < s.length/2; i++){
-                for (int j = s.length-1; j > s.length/2; j--){
-                    if (!s[i].equals(s[j])) {
-                        return false;
-                    }
+                if (!s[i].equals(s[counter])){
+                    return false;
                 }
+                counter--;
             }
             return true;
         });

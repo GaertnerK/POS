@@ -34,14 +34,13 @@ public class NumberTester {
                 commandLine = br.readLine();
                 String[] parts = commandLine.split(" ");
                 switch (parts[0]) {
-                    case "1": {
+                    case "1":
                         if (oddTester.testNumber(Integer.parseInt(parts[1]))) {
                             System.out.println("EVEN");
                         }else {
                             System.out.println("ODD");
                         }
                         break;
-                    }
                     case "2":
                         if(primeTester.testNumber(Integer.parseInt(parts[1]))){
                             System.out.println("PRIME");
