@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         NumberTester tester = new NumberTester("testfile.txt");
         tester.setOddTester(n -> n % 2 == 0);
+
         tester.setPalindromTester(n -> {
             String[] s = String.valueOf(n).split("");
             if (s.length % 2 != 0) {
@@ -18,6 +19,7 @@ public class Main {
             }
             return true;
         });
+
         tester.setPrimeTester(n -> {
             if (n <= 2){
                 return false;
