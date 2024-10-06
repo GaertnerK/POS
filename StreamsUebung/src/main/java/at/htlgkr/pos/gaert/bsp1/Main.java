@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +26,13 @@ public class Main {
                 ))
                 .collect(Collectors.toList());
         weaponList.forEach(System.out::println);
+        System.out.println("\n");
 
         weaponList.sort((a,b)->Integer.compare(b.getDamage(), a.getDamage()));
+
+        weaponList.sort(Comparator.comparing(Weapon::getCombatType)
+                                    .thenComparing(Weapon::getDamage)
+                                    .thenComparing(Weapon::getName));
+        weaponList.forEach(System.out::println);
     }
 }
