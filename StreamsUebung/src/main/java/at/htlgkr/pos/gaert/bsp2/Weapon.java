@@ -23,45 +23,48 @@ public class Weapon {
     }
 
     public String getName() {
-        //implement this
+        return this.name;
     }
     
     public CombatType getCombatType() {
-        //implement this
+        return this.combatType;
     }
 
     public DamageType getDamageType() {
-        //implement this
+        return this.damageType;
     }
 
     public int getDamage() {
-        //implement this
+        return this.damage;
     }
 
     public int getSpeed() {
-        //implement this
+        return this.speed;
     }
 
     public int getMinStrength() {
-        //implement this
+        return this.minStrength;
     }
     
     public int getValue() {
-        //implement this
+        return this.value;
     }
     
     public void setValue(int value) {
-        //implement this
+        this.value = value;
     }
 
     @Override
     public int hashCode() {
-        //implement this
+        return Objects.hash(name, combatType, damageType, damage, speed, minStrength, value);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        //implement this
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Weapon weapon = (Weapon) o;
+        return damage == weapon.damage && speed == weapon.speed && minStrength == weapon.minStrength && value == weapon.value && Objects.equals(name, weapon.name) && combatType == weapon.combatType && damageType == weapon.damageType;
     }
 
     @Override

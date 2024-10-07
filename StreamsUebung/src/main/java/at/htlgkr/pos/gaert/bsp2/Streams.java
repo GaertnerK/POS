@@ -1,6 +1,6 @@
 package at.htlgkr.pos.gaert.bsp2;
 
-import at.htlgkr.pos.gaert.bsp1.Weapon;
+import at.htlgkr.pos.gaert.bsp2.Weapon;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,9 @@ import java.util.stream.Collectors;
 public class Streams {
 
     public double average(int[] numbers) {
-        //implement this
+        double average = 0;
+        average = Arrays.stream(numbers).average().getAsDouble();
+        return average;
     }
     
     public List<String> upperCase(String[] strings) {
