@@ -12,6 +12,15 @@ public class Main {
     final static String filename = "weapons.csv";
     public static void main(String[] args) throws IOException {
         List<Weapon> weaponList = new ArrayList<>();
+        Printable printable = (a) -> a.forEach(System.out::println);
+        Printable printTabel = (a) -> {
+            List<Weapon> weapons = a;
+            System.out.println("Name | CombatType | DamageType | Damage | Speed | Strength | Value");
+            weapons.forEach(weapon -> {
+                System.out.println(weapon.getName() + " | " + weapon.getCombatType() + " | " + weapon.getDamageType() + " | " + weapon.getDamage() + " | " + weapon.getSpeed() + " | " + weapon.getStrength() + " | " + weapon.getValue());
+                System.out.println("--------------------------------------------------------");
+            });
+        };
         weaponList = Files.lines(new File(filename).toPath())
                 .skip(1)
                 .map(s -> s.split(";"))
@@ -26,12 +35,16 @@ public class Main {
                 ))
                 .collect(Collectors.toList());
         weaponList.forEach(System.out::println);
+        printable.print(weaponList);
         System.out.println("\n");
 
         sortWeaponsDamage(weaponList);
 
         sortWeapons(weaponList);
-        weaponList.forEach(System.out::println);
+        printable.print(weaponList);
+        System.out.println("\n");
+
+        printTabel.print(weaponList);
     }
 
     public static List<Weapon> sortWeaponsDamage(List<Weapon> weaponList){
