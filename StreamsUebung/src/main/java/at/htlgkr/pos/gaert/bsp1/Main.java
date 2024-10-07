@@ -28,11 +28,21 @@ public class Main {
         weaponList.forEach(System.out::println);
         System.out.println("\n");
 
-        weaponList.sort((a,b)->Integer.compare(b.getDamage(), a.getDamage()));
+        sortWeaponsDamage(weaponList);
 
-        weaponList.sort(Comparator.comparing(Weapon::getCombatType)
-                                    .thenComparing(Weapon::getDamage)
-                                    .thenComparing(Weapon::getName));
+        sortWeapons(weaponList);
         weaponList.forEach(System.out::println);
+    }
+
+    public static List<Weapon> sortWeaponsDamage(List<Weapon> weaponList){
+        weaponList.sort((a,b)->Integer.compare(b.getDamage(), a.getDamage()));
+        return weaponList;
+    }
+
+    public static List<Weapon> sortWeapons(List<Weapon> weaponList){
+        weaponList.sort(Comparator.comparing(Weapon::getCombatType)
+                .thenComparing(Weapon::getDamage)
+                .thenComparing(Weapon::getName));
+        return weaponList;
     }
 }
