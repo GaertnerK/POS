@@ -12,11 +12,13 @@ public class Main {
                 .skip(1)
                 .map(s -> s.split(";"))
                 .map(s -> new Weapon(
-                        s[0], Integer.parseInt(s[1]), s[2], Double.parseDouble(s[3]), Integer.parseInt(s[4]), s[5]
+                        s[0], Integer.parseInt(s[1]), s[2], Double.parseDouble(s[3].replace(",", ".")), Integer.parseInt(s[4]), s[5]
                 ))
                 .collect(Collectors.toList());
+
+        weaponList.forEach(System.out::println);
+        Player player = new Player("Test", 50);
+        StringConverter converter = value -> "Player: " + value.getName() + "; " + value.getMaxWeight() + "; " + value.getCarrying() + "; " + value.getWeapons();
+        System.out.println(converter.convert(player));
     }
-
-    Player player = new Player("Test", 50);
-
 }

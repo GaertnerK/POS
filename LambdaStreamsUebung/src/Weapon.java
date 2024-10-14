@@ -62,4 +62,16 @@ public class Weapon {
     public void setWeight(double weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Weapon{" +
+                "attackPoints=" + attackPoints +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", weight=" + weight +
+                ", price=" + price +
+                ", itemId='" + itemId + '\'' +
+                '}';
+    }
 }
