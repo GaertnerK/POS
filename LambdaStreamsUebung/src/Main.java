@@ -17,5 +17,6 @@ public class Main {
                 .collect(Collectors.toList());
     }
 
-    Player player = new Player();
+    Player player = new Player("Test", 50);
+
 }
