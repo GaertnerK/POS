@@ -1,4 +1,4 @@
-public class Weapon {
+public class Weapon{
     private String name;
     private int attackPoints;
     private String category;
@@ -65,13 +65,12 @@ public class Weapon {
 
     @Override
     public String toString() {
-        return "Weapon{" +
-                "attackPoints=" + attackPoints +
-                ", name='" + name + '\'' +
-                ", category='" + category + '\'' +
-                ", weight=" + weight +
-                ", price=" + price +
-                ", itemId='" + itemId + '\'' +
-                '}';
+        return "\nWeapon:" +
+                " attackPoints=" + attackPoints + ", \n" +
+                " name='" + name + ",\n" +
+                " category='" + category + ",\n" +
+                " weight=" + weight + ",\n" +
+                " price=" + price + ", \n" +
+                " itemId='" + itemId + "\n";
     }
 }

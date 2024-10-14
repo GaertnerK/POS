@@ -16,9 +16,49 @@ public class Main {
                 ))
                 .collect(Collectors.toList());
 
-        weaponList.forEach(System.out::println);
-        Player player = new Player("Test", 50);
+        List<Weapon> playerWeapons = List.of(new Weapon[]{weaponList.get(2), weaponList.get(3), weaponList.get(4)});
+        Player player = new Player("Test", 50, playerWeapons);
         StringConverter converter = value -> "Player: " + value.getName() + "; " + value.getMaxWeight() + "; " + value.getCarrying() + "; " + value.getWeapons();
         System.out.println(converter.convert(player));
+
+        //findWhereItemIDStartsWith
+        System.out.println("findWhereItemIDStartsWith");
+        List<Weapon> list = player.findWhereItemIDStartsWith("U");
+        list.forEach(System.out::println);
+
+        //findWithItemID
+        System.out.println("findWithItemID");
+        Weapon w = player.findWithItemID("UEWABG");
+        System.out.println(w);
+
+        //findWithCategory
+        System.out.println("findWithCategory");
+        List<Weapon> list2 = player.findWithCategory("orcish");
+        list2.forEach(System.out::println);
+
+        //sumPrice
+        System.out.println("sumPrice");
+        int price = player.sumPrice();
+        System.out.println(price);
+
+        //averageAttackPoints
+        System.out.println("averageAttackPoints");
+        int avergeAttackPoints = player.averageAttackPoints();
+        System.out.println(avergeAttackPoints);
+
+        //findWithMostAttackPoints
+        System.out.println("findWithMostAttackPoints");
+        Weapon weapon = player.findWithMostAttackPoints();
+        System.out.println(weapon);
+
+        //findWeightUnder
+        System.out.println("findWeightUnder");
+        List<Weapon> list3 = player.findWeightUnder(20);
+        list3.forEach(System.out::println);
+
+        //carryAbleWeapons
+        System.out.println("carryAbleWeapons");
+        List<Weapon> list4 = player.carryAbleWeapons(player);
+        list4.forEach(System.out::println);
     }
 }
