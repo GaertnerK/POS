@@ -20,15 +20,13 @@ public class Main {
     }
 
     public static List<String> listToUpperCase(List<String> list){
-        StringInterface toUpperCase = (a) -> a.toUpperCase();
-        list.forEach(s -> toUpperCase.convert(s));
-        return list;
+        StringInterface stringToUpperCase = s -> s.stream().map(String::toUpperCase).toList();
+        return stringToUpperCase.convert(list);
     }
 
     public static List<String> listToLowerCase(List<String> list){
-        StringInterface toLowerCase = (a) -> a.toLowerCase();
-        list.forEach(s -> toLowerCase.convert(s));
-        return list;
+        StringInterface stringToLowerCase = s -> s.stream().map(String::toLowerCase).toList();
+        return stringToLowerCase.convert(list);
     }
 
     public static List<Integer> evenFilter(List<Integer> list){
@@ -49,7 +47,7 @@ public class Main {
     }
 
     public static List<Integer> deleteDuplicates(List<Integer> list){
-        return new HashSet<>(list).stream().toList();
+        return list.stream().distinct().toList();
     }
 
     public static int getFactorial(int a){

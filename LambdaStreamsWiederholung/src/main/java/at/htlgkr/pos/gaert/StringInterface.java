@@ -1,5 +1,7 @@
 package at.htlgkr.pos.gaert;
 
+import java.util.List;
+
 public interface StringInterface {
-    String convert(String s);
+    List<String> convert(List<String> s);
 }
