@@ -1,4 +1,4 @@
-package at.htlgkr.pos.gaert;
+package at.htlgkr.pos.gaert.interfaces;
 
 import java.util.List;
 
