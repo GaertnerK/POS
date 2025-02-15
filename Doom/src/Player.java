@@ -10,7 +10,7 @@ public class Player {
         this.health = 100;
         this.positionX = 0;
         this.positionY = 0;
-        this.weapon = new Axe();
+        this.weapon = new Hand();
     }
 
     public Weapon getWeapon() {
