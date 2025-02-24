@@ -8,6 +8,7 @@ import weapons.Sword;
 import weapons.Wand;
 
 import java.util.Scanner;
+import java.util.spi.AbstractResourceBundleProvider;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class Main {
         Field field = new Field(level);
         Player player = new Player();
         Logic logic = new Logic();
-        System.out.println(printInfo());
+        printInfo();
         field.printMap();
         while (logic.isPlayerAlive()) {
             player.setPosition(field.getMap());
@@ -24,9 +25,17 @@ public class Main {
                     right → gehe nach Zelle nach rechts
                     forward → gehe nach Zelle nach vor
                     backward → gehe nach Zelle nach hinten
+                    info → Infos anzeigen
+                    end → beenden
                     """;
             System.out.println(menu);
-            logic.move(player, field);
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine();
+            switch (input) {
+                case "info": printInfo(); break;
+                case "end": return;
+                default: logic.move(player, field, input); break;
+            }
             if (logic.isLevelComplete()) {
                 System.out.println("Level complete");
                 if (level == 5) {
@@ -47,7 +56,7 @@ public class Main {
         }
     }
 
-    public static String printInfo(){
+    public static void printInfo(){
         Wizard w = new Wizard(100, 2, 3);
         Dwarf d = new Dwarf(100, 2, 3);
         Zombie z = new Zombie(100, 2, 3);
@@ -55,13 +64,13 @@ public class Main {
         Hand h = new Hand();
         Sword s = new Sword();
         Wand wand = new Wand();
-        return """
+        System.out.println("""
                 Ziel: Schatz(S) erreichen
                 @ - Player
                 S - Schatz
                 X - Gegner
                 Gegner:""" + "\n    " + w.getDetails() + "\n    " + d.getDetails() + "\n    " + z.getDetails() + "\n" +
                 """
-                Waffen:""" + "\n    " + a.getDetails() + "\n    " + h.getDetails() + "\n    " + s.getDetails() + "\n    " + wand.getDetails();
+                Waffen:""" + "\n    " + a.getDetails() + "\n    " + h.getDetails() + "\n    " + s.getDetails() + "\n    " + wand.getDetails() + "\n");
     }
 }

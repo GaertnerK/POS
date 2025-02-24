@@ -9,6 +9,7 @@ public final class Wand extends Weapon{
         this.name = "Zauberstab";
     }
 
+    @Override
     public String getName() {
         return name;
     }

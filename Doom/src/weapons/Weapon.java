@@ -25,5 +25,6 @@ public sealed abstract class Weapon permits Axe, Hand, Sword, Wand {
         this.attackSpeed = attackSpeed;
     }
 
+    public abstract String getName();
     public abstract String getDetails();
 }

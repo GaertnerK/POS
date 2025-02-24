@@ -8,6 +8,7 @@ public final class Sword extends Weapon{
         this.name = "Schwert";
     }
 
+    @Override
     public String getName() {
         return name;
     }

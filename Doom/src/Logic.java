@@ -30,9 +30,7 @@ public class Logic {
         return lastChar;
     }
 
-    public void move(Player player, Field field) {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
+    public void move(Player player, Field field, String input) {
         switch (input) {
             case "left", "a" -> {
                 if(player.moveLeft(field.getMap())){
@@ -159,33 +157,33 @@ public class Logic {
                 attackSpeed += 0.5;
                 axeAttackSpeedPlayer += 0.5;
                 if ((player.getWeapon() instanceof Sword && attackSpeed == 1) || player.getWeapon() instanceof Wand || player.getWeapon() instanceof Hand || axeAttackSpeedPlayer == 2) {
-                    //if (player.getWeapon() instanceof Axe || player.getWeapon() instanceof Wand || player.getWeapon() instanceof Hand || attackSpeed == 1) {
-                        int input = 0;
-                        try {
-                            input = scanner.nextInt();
-                        } catch (Exception exception) {
-                            input = 0;
-                            System.out.println("Ungültige Eingabe");
-                        }
-                        int rand = random.nextInt(3) + 1;
-                        if (rand == input) {
-                            System.out.println("Treffer");
-                            e.setHealth(e.getHealth() - player.getWeapon().getDamage());
-                        } else {
-                            System.out.println("Kein Treffer");
-                        }
-                        if (e.getHealth() <= 0) {
-                            field.getMap()[e.getPositionY()][e.getPositionX()] = ' ';
-                            field.getEnemies().remove(e);
-                            System.out.println("Waffe des Gegners behalten?: " + e.getWeapon() + " J/N");
-                            String inputS = scanner.next();
-                            switch (inputS) {
-                                case "J", "j" -> player.setWeapon(e.getWeapon());
-                                default -> System.out.println("Waffe wurde nicht mitgenommen");
+                    int input = 0;
+                    try {
+                        input = scanner.nextInt();
+                    } catch (Exception exception) {
+                        System.out.println("Ungültige Eingabe");
+                    }
+                    int rand = random.nextInt(3) + 1;
+                    if (rand == input) {
+                        System.out.println("Treffer");
+                        e.setHealth(e.getHealth() - player.getWeapon().getDamage());
+                    } else {
+                        System.out.println("Kein Treffer");
+                    }
+                    if (e.getHealth() <= 0) {
+                        field.getMap()[e.getPositionY()][e.getPositionX()] = ' ';
+                        field.getEnemies().remove(e);
+                        System.out.println("Waffe des Gegners behalten?: " + e.getWeapon().getName() + " J/N");
+                        String inputS = scanner.next();
+                        switch (inputS) {
+                            case "J", "j" -> {
+                                player.setWeapon(e.getWeapon());
+                                System.out.println("Waffe wurde mitgenommen!");
                             }
-                            return;
+                            default -> System.out.println("Waffe wurde nicht mitgenommen");
                         }
-                    //}
+                        return;
+                    }
                 }
             }while (attackSpeed != 1);
             System.out.println();

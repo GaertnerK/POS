@@ -7,6 +7,7 @@ public final class Hand extends Weapon{
         name = "Hand";
     }
 
+    @Override
     public String getName() {
         return name;
     }

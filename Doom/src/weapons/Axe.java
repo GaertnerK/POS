@@ -9,6 +9,7 @@ public final class Axe extends Weapon{
         this.name = "Axt";
     }
 
+    @Override
     public String getName() {
         return name;
     }
