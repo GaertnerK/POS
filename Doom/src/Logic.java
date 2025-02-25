@@ -1,5 +1,4 @@
 import enemies.Enemy;
-import weapons.Axe;
 import weapons.Hand;
 import weapons.Sword;
 import weapons.Wand;
@@ -24,10 +23,6 @@ public class Logic {
 
     public boolean isLevelComplete() {
         return levelComplete;
-    }
-
-    public char getLastChar() {
-        return lastChar;
     }
 
     public void move(Player player, Field field, String input) {
@@ -61,7 +56,7 @@ public class Logic {
                 }
             }
         }
-        if (checkWin(player, field)) {
+        if (checkWin()) {
             levelComplete = true;
             return;
         }
@@ -216,7 +211,7 @@ public class Logic {
         }
     }
 
-    public boolean checkWin(Player player, Field field) {
+    public boolean checkWin() {
         if (lastChar == 'S') {
             levelComplete = true;
             return true;

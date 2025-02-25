@@ -1,5 +1,4 @@
 import enemies.Dwarf;
-import enemies.Enemy;
 import enemies.Wizard;
 import enemies.Zombie;
 import weapons.Axe;
@@ -8,7 +7,6 @@ import weapons.Sword;
 import weapons.Wand;
 
 import java.util.Scanner;
-import java.util.spi.AbstractResourceBundleProvider;
 
 public class Main {
     public static void main(String[] args) {

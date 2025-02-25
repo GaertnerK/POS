@@ -15,6 +15,6 @@ public final class Sword extends Weapon{
 
     @Override
     public String getDetails(){
-        return name + "\n   Damage: " + super.getDamage() + "; Sie können nur bei jedem Angriff angreifen.";
+        return name + "\n   Damage: " + super.getDamage() + "; Sie können bei jedem Angriff angreifen.";
     }
 }

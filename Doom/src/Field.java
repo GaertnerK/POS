@@ -19,10 +19,6 @@ public class Field {
         return map;
     }
 
-    public void setMap(char[][] map) {
-        this.map = map;
-    }
-
     public ArrayList<Enemy> getEnemies() {
         return enemies;
     }
