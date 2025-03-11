@@ -1,0 +1,7 @@
+Du stehst in einem Raum.
+In dem Raum steht ein Tisch, ein Sessel, eine Tür und ein Regal.
+Du kannst durch die Tür gehen oder das Regal betrachten.
+1)Durch die Tür gehen
+2)Betrachten
+1 oder 2 eingeben...
+Eingabe>
